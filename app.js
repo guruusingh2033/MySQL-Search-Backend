@@ -8,6 +8,7 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth.js');
 var cors = require('cors')
 var config = require('./config/config.js');
+var connection = require('./db.js');
 
 var app = express();
 app.use(cors());
@@ -25,6 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(config.routing.common_route, authRouter);
+
+//connecting to database
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to database!');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
