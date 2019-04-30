@@ -6,6 +6,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth.js');
+var deviceRouter = require('./routes/device.js');
+var sourceRouter = require('./routes/source.js');
 var cors = require('cors')
 var config = require('./config/config.js');
 var connection = require('./db.js');
@@ -26,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(config.routing.common_route, authRouter);
+app.use(config.routing.common_route, deviceRouter);
+app.use(config.routing.common_route, sourceRouter);
 
 //connecting to database
 connection.connect((err) => {
