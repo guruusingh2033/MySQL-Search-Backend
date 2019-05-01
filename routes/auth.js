@@ -16,7 +16,7 @@ const login_schema = Joi.object({
 router.post('/login', validator.body(login_schema, joi_options), function (req, res) {
   
   var encryptedPassword = md5(req.body.password);
-  var fetch = "SELECT * FROM orgs WHERE org = '" + req.body.organization + "' AND username = '" + req.body.username + "' AND password_md5_encr = '" + encryptedPassword + '\r\n' + "'";
+  var fetch = "SELECT * FROM orgs WHERE org = '" + req.body.organization + "' AND username = '" + req.body.username + "' AND password_md5_encr = '" + encryptedPassword + "'";
   connection.query(fetch, function (error, results) {
     if (error) return null;
     else {
