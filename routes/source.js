@@ -7,7 +7,7 @@ router.post('/getsourcesbydevid', function (req, res) {
         res.status(200).send(response)
     },
         function (err) {
-            res.status(400).send(err)
+            res.status(200).send(err)
         })
         .catch(function (exception) {
             res.status(400).send(exception)
@@ -20,7 +20,7 @@ router.post('/getdatabytime', function (req, res) {
         res.status(200).send(response)
     },
         function (err) {
-            res.status(400).send(err)
+            res.status(200).send(err)
         })
         .catch(function (exception) {
             res.status(400).send(exception)
