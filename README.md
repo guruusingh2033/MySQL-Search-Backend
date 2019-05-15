@@ -24,7 +24,7 @@
 
 **Now you will get the following message on terminal:**
 
-*Server is listening on port: 3000*
+*Server is listening on port: 3000*  
 *Connected to database!*
 
 **If you get this message, Errorlog-Search-Backend is running successfully on port 3000**
